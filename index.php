@@ -174,7 +174,7 @@ $active_category = $_GET['category'] ?? 'cok_satanlar';
                                                         <div class="card-body">
                                                             <h5 class="card-title"><?= htmlspecialchars($product['name']); ?></h5>
                                                             <p class="card-text"><?= htmlspecialchars($product['price']); ?></p>
-                                                            <a href="#" class="btn btn-primary">İncele</a>
+                                                            <a href="views/products/details.php" class="btn btn-primary">İncele</a>
                                                         </div>
                                                     </div>
                                                 </div>
