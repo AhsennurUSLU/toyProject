@@ -68,13 +68,7 @@ $active_category = $_GET['category'] ?? 'cok_satanlar';
 </style>
 
 <div class="container-xxl bg-white p-0">
-    <!-- Spinner Start -->
-    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
-            <span class="sr-only">Loading...</span>
-        </div>
-    </div>
-    <!-- Spinner End -->
+    
 
 
     <!-- Navbar Start -->
@@ -91,7 +85,7 @@ $active_category = $_GET['category'] ?? 'cok_satanlar';
                     <div class="container">
                         <div class="row justify-content-start">
                             <div class="col-10 col-lg-8">
-                                <h1 class="display-2 text-white animated slideInDown mb-4">Denemedenemedenemedenemedeneme</h1>
+                                <h1 class="display-2 text-white animated slideInDown mb-4">yeniden hoş geldin kaptan !!!</h1>
                                 <p class="fs-5 fw-medium text-white mb-4 pb-2">DahafazlaDenemedenemedenemedenemedenemeDahafazlaDenemedenemedenemedenemedeneme</p>
                                 <a href="" class="btn btn-primary rounded-pill py-sm-3 px-sm-5 me-3 animated slideInLeft">Deneme Metni</a>
                                 <a href="" class="btn btn-dark rounded-pill py-sm-3 px-sm-5 animated slideInRight">Deneme Metni</a>

@@ -1,5 +1,9 @@
 <?php
 require_once(__DIR__ .  '/../../config.php');
+require_once __DIR__ . '/../functions/categoryFunctions.php';
+$categories = getAllCategories();
+
+
 ?>
 <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top px-4 px-lg-5 py-lg-0">
     <a href="<?= BASE_URL; ?>index.php" class="navbar-brand">
@@ -17,13 +21,11 @@ require_once(__DIR__ .  '/../../config.php');
                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Oyuncak Çeşitleri</a>
                 <div class="dropdown-menu rounded-0 rounded-bottom border-0 shadow-sm m-0">
                     <a href="<?= BASE_URL; ?>views/products/product-list.php" class="dropdown-item"> Tüm Ürünler </a>
-                    <a href="<?= BASE_URL; ?>views/general-pages/facility.php" class="dropdown-item">Oyuncak</a>
-                    <a href="<?= BASE_URL; ?>views/general-pages/team.php" class="dropdown-item">Kırtasiye-Ofis</a>
-                    <a href="<?= BASE_URL; ?>views/general-pages/call-to-action.php" class="dropdown-item">Parti-Süs</a>
-                    <a href="<?= BASE_URL; ?>views/general-pages/appointment.php" class="dropdown-item">Hediyelik Eşya</a>
-                    <a href="<?= BASE_URL; ?>views/general-pages/testimonial.php" class="dropdown-item">Kamp Malzemeleri</a>
-                    <a href="<?= BASE_URL; ?>views/general-pages/404.php" class="dropdown-item">Yılbaşı Ürünleri</a>
-                    <a href="<?= BASE_URL; ?>views/general-pages/404.php" class="dropdown-item">Pet Shop</a>
+                     <?php foreach($categories as $category): ?>
+                        <a href="<?= BASE_URL; ?>views/products/product-list.php?category_id=<?= $category['id']; ?>" class="dropdown-item">
+                            <?= htmlspecialchars($category['name']); ?>
+                        </a>
+                    <?php endforeach; ?>
                 </div>
             </div>
             <a href="<?= BASE_URL; ?>views/general-pages/contact.php" class="nav-item nav-link">İletişim</a>

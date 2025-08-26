@@ -60,7 +60,7 @@
                             <!-- Cep Telefonu -->
                             <div class="form-group first">
                                 <label for="phone">Cep Telefonu</label>
-                                <input type="tel" class="form-control" placeholder="Telefon Numaranız" id="phone" required>
+                                <input type="tel" class="form-control" placeholder="Telefon Numaranız (Başına 0 koyarak yazınız)" id="phone" required>
                             </div>
 
                             <!-- Aydınlatma Metni -->

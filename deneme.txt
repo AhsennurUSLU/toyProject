@@ -1,0 +1,18 @@
+
+
+                <img src="<?= BASE_URL ?>uploads/products/<?= $images[0]; ?>" 
+
+
+
+                 <?php  
+            if (!empty($images)):
+                 ?>
+                 <img src="<?= BASE_URL ?>uploads/products/<?= $images[0]; ?>" 
+
+                     alt="<?= htmlspecialchars($product['name']); ?>" 
+                     class="img-fluid rounded" style="max-height:400px; object-fit:contain;">
+            <?php else: ?>
+                <img src="<?= BASE_URL ?>uploads/products/default-image.png" 
+                     alt="Varsayılan Resim" 
+                     class="img-fluid rounded" style="max-height:400px; object-fit:contain;">
+            <?php endif; ?>
