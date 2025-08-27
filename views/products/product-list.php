@@ -1,6 +1,15 @@
-<?php require_once __DIR__ . '/../../config.php';
+<?php
+session_start();
+
+// Sepet yoksa oluştur
+if (!isset($_SESSION['cart'])) {
+    $_SESSION['cart'] = [];
+}
+
+
+require_once __DIR__ . '/../../config.php';
 include '../layout/header.php';
- ?>
+?>
 <?php include '../layout/navbar.php'; ?>
 <?php require_once __DIR__ . '/../../db.php'; ?>
 <?php require_once __DIR__ . '/../functions/productFunctions.php';
@@ -29,12 +38,17 @@ $products = getAllProducts($filters);
         font-size: 1.2rem;
         font-weight: bold;
     }
+
     .card img {
-    width: 200px;   /* istediğin sabit genişlik */
-    height: 200px;  /* istediğin sabit yükseklik */
-    object-fit: contain; /* resmin orantılı kırpılmasını sağlar */
-    border-radius: 8px; /* kenarları yumuşatmak istersen */
-}
+        width: 200px;
+        /* istediğin sabit genişlik */
+        height: 200px;
+        /* istediğin sabit yükseklik */
+        object-fit: contain;
+        /* resmin orantılı kırpılmasını sağlar */
+        border-radius: 8px;
+        /* kenarları yumuşatmak istersen */
+    }
 </style>
 
 <div class="container-fluid mt-4">
@@ -96,7 +110,11 @@ $products = getAllProducts($filters);
                                     <p class="card-text text-truncate"><?= htmlspecialchars($product['description']); ?></p>
                                     <p class="card-text text-primary fw-bold"><?= $product['price']; ?> TL</p>
                                     <a href="details.php?id=<?= $product['id']; ?>" class="btn btn-primary">İncele</a>
-                                    <a href="#" class="btn btn-primary">Sepete Ekle</a>
+                                    <form method="POST" action="<?= BASE_URL ?>views/cart/add_to_cart.php">
+                                        <input type="hidden" name="product_id" value="<?= $product['id']; ?>">
+                                        <input type="hidden" name="quantity" value="1">
+                                        <button type="submit" class="btn btn-primary">Sepete Ekle</button>
+                                    </form>
                                 </div>
                             </div>
                         </div>

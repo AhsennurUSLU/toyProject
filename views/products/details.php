@@ -1,5 +1,10 @@
 <?php
+session_start();
 
+// Sepet yoksa oluştur
+if (!isset($_SESSION['cart'])) {
+    $_SESSION['cart'] = [];
+}
 
 require_once __DIR__ . '/../../config.php';
 include '../layout/header.php';
@@ -65,12 +70,16 @@ $similarProducts = getSimilarProducts($product['category_id'], $product['id']);
             <div class="price text-primary fw-bold"><?= number_format($product['price'], 2); ?> TL</div>
 
             <div class="mt-3 d-flex align-items-center">
-                <div class="input-group me-3" style="width: 120px;">
-                    <button class="btn btn-outline-secondary" onclick="decreaseQuantity()">-</button>
-                    <input type="text" id="quantity" class="form-control text-center" value="1">
-                    <button class="btn btn-outline-secondary" onclick="increaseQuantity()">+</button>
-                </div>
-                <a href="../cart/view.php" class="btn btn-primary">Sepete Ekle</a>
+                
+                <form method="POST" action="<?= BASE_URL ?>views/cart/add_to_cart.php" class="d-flex align-items-center">
+    <input type="hidden" name="product_id" value="<?= $product['id']; ?>">
+    <div class="input-group me-3" style="width: 120px;">
+        <button type="button" class="btn btn-outline-secondary" onclick="decreaseQuantity()">-</button>
+        <input type="text" id="quantity" name="quantity" class="form-control text-center" value="1">
+        <button type="button" class="btn btn-outline-secondary" onclick="increaseQuantity()">+</button>
+    </div>
+    <button type="submit" class="btn btn-primary">Sepete Ekle</button>
+</form>
                 <button class="btn btn-success ms-2">Hemen Al</button>
             </div>
 

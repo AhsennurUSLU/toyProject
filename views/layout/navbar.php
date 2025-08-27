@@ -1,8 +1,17 @@
 <?php
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 require_once(__DIR__ .  '/../../config.php');
 require_once __DIR__ . '/../functions/categoryFunctions.php';
 $categories = getAllCategories();
-
+// Sepetteki toplam ürün sayısını hesapla
+$cartItemCount = 0;
+if (!empty($_SESSION['cart'])) {
+    foreach ($_SESSION['cart'] as $qty) {
+        $cartItemCount += $qty;
+    }
+}
 
 ?>
 <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top px-4 px-lg-5 py-lg-0">
